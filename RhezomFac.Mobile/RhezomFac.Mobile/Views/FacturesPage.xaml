@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="RhezomFac.Mobile.Views.FacturesPage"
+             x:Name="FacturesPageView"
+             >
+
+    <Grid RowDefinitions="*,80"
+          ColumnDefinitions="*, 80">
+        <!--comment automatiser grid row ?-->
+        <ListView     HeightRequest="80"
+                      HorizontalOptions="Center"
+                      Margin="50,0"
+                      ItemsSource="{Binding FacturesList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding ID}"/>
+                            <Label Text="{Binding DateEmission}"/>
+                            <Button Text="Supprimer" Command="{Binding Source={x:Reference FacturesPageView}, Path=BindingContext.DeleteInvoiceCommand}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Frame Grid.Row="1"
+               Grid.Column="1"
+
+               Margin="5"
+               Padding="15"
+               CornerRadius="100"
+               HasShadow="True"
+               BackgroundColor="{StaticResource PrimaryColor}"
+               BorderColor="LightGray">
+            <ImageButton WidthRequest="20"
+                         BackgroundColor="Transparent"
+                         HeightRequest="20"
+                         Source="add.png"
+                         Command="{Binding AddNewInvoiceCommand}"
+                         />
+        </Frame>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="RhezomFac.Mobile.Views.CreateProfilEntreprisePage"
+             Title="Création du profil de l'entreprise">
+    <ScrollView Margin="10">
+        <Grid RowDefinitions="auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto,auto">
+
+            <!--                INFOS CLIENT            -->
+            <Entry  Style="{StaticResource EntryWithNextBtnPanelFormStyle}"
+                Text="{Binding NomCommercial}"
+                Placeholder="Nom commercial"/>
+
+            <Entry Grid.Row="1"
+               Placeholder="Adresse"
+               Text="{Binding AdrEntr}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="2"
+               Placeholder="Numéro TVA"
+               Text="{Binding NumTVA}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="3"
+               Placeholder="BCE" Keyboard="Numeric"
+               Text="{Binding BCE}"
+
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="4"
+               Placeholder="Pays" Keyboard="Text"
+               Text="{Binding Pays}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="5"
+               Placeholder="Numéro mobile" Keyboard="Numeric"
+               Text="{Binding TelEntr}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="6"
+               Placeholder="Numéro FAX" Keyboard="Numeric"
+               Text="{Binding NumFax}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="7"
+               Placeholder="Adresse email" Keyboard="Email"
+               Text="{Binding MailEntr}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="8"
+               Placeholder="Lien Web de l'entreprise" Keyboard="Url"
+               Text="{Binding LienWeb}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="9"
+               Placeholder="IBAN"
+               Text="{Binding IBAN}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="10"
+               Placeholder="BIC" Keyboard="Text"
+               Text="{Binding BIC}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <!--<Picker Grid.Row="6"
+                Title="Pays"
+                Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>-->
+
+            <Picker Grid.Row="11"
+                Title="Produits"
+                Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <StackLayout Grid.Row="12"
+                         Orientation="Horizontal">
+                <Entry Grid.Row="12"
+                       WidthRequest="100"
+                       Placeholder="Quantité" Keyboard="Numeric"
+                        Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+                <Frame  Margin="0"
+                        Padding="15"
+                        CornerRadius="100"
+                        HasShadow="True"
+                        BackgroundColor="{StaticResource PrimaryColor}"
+                        BorderColor="LightGray">
+                    <ImageButton
+                         WidthRequest="20"
+                         BackgroundColor="Transparent"
+                         HeightRequest="20"
+                        Command="{Binding AddProductCommand}"
+                         Source="add.png"/>
+                </Frame>
+
+            </StackLayout>
+
+            <Frame Grid.Row="13"
+               Style="{StaticResource ButtonFrameStyle}">
+                <Button Text="Enregistrer"
+                    WidthRequest="200"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding SaveCommand}"/>
+            </Frame>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

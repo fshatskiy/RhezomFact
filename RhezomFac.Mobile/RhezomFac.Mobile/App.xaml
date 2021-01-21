@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             x:Class="RhezomFac.Mobile.App">
+    <Application.Resources>
+
+        <!-- Application resource dictionary -->
+        <!--Colors-->
+        <Color x:Key="PrimaryColor">#09C</Color>
+        <Color x:Key="WhiteColor">#fff</Color>
+        <Color x:Key="RedColor">#CC0000</Color>
+        <Color x:Key="GrayLightColor">#C0808080</Color>
+        <Color x:Key="BlackColor">#000</Color>
+        <Color x:Key="SeparatorGrayColor">#DCDCDC</Color>
+        <Color x:Key="BlueLightColor">#09C</Color>
+
+        <!--Navigation bar-->
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryColor}"/>
+            <Setter Property="BarTextColor" Value="White"/>
+        </Style>
+
+        <!--Master Details Menu-->
+        <Style x:Key="MenuItemLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="TextColor" Value="{StaticResource BlackColor}"/>
+        </Style>
+
+        <Style x:Key="MenuItemImagelStyle" TargetType="Image">
+            <Setter Property="WidthRequest" Value="28"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+
+        <Style x:Key="BoxViewSeparatorStyle" TargetType="BoxView">
+            <Setter Property="Margin" Value="0,3"/>
+            <Setter Property="HeightRequest" Value="1"/>
+            <Setter Property="Color" Value="{StaticResource SeparatorGrayColor}"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+        </Style>
+
+        <!--Buttons-->
+        <Style x:Key="ButtonFrameStyle" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+            <Setter Property="HasShadow" Value="True"/>
+            <Setter Property="Margin" Value="50,30,50,30" />
+            <Setter Property="CornerRadius" Value="100" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="Padding" Value="0" />
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}" />
+            <Setter Property="TextColor" Value="{StaticResource WhiteColor}"/>
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="WidthRequest" Value="200" />
+            <Setter Property="CornerRadius" Value="15" />
+        </Style>
+
+
+        <!--Entries-->
+        <Style x:Key="EntryPanelForm" TargetType="Entry">
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="Margin" Value="40,0,40,0" />
+            <Setter Property="ClearButtonVisibility" Value="WhileEditing" />
+        </Style>
+
+        <Style x:Key="EntryWithNextBtnPanelFormStyle" TargetType="Entry" BasedOn="{StaticResource EntryPanelForm}">
+            <Setter Property="ReturnType" Value="Next" />
+        </Style>
+
+    </Application.Resources>
+</prism:PrismApplication>

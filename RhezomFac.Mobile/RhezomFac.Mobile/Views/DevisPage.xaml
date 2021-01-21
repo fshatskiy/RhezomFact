@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="RhezomFac.Mobile.Views.DevisPage">
+
+    <Grid RowDefinitions="*,80"
+          ColumnDefinitions="*, 80">
+        <!--comment automatiser grid row ?-->
+        <!--<ListView     HeightRequest="80"
+                      HorizontalOptions="Center"
+                      Margin="50,0"
+                      ItemsSource="{Binding DevisList}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding ID}"/>
+                            <Label Text="{Binding DateEmission}"/>
+                            <Button Text="Supprimer" Command="{Binding Source={x:Reference DevisPage}, Path=BindingContext.RemoveDevisCommand}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Frame Grid.Row="1"
+               Grid.Column="1"
+
+               Margin="5"
+               Padding="15"
+               CornerRadius="100"
+               HasShadow="True"
+               BackgroundColor="{StaticResource PrimaryColor}"
+               BorderColor="LightGray">
+            <ImageButton WidthRequest="20"
+                         BackgroundColor="Transparent"
+                         HeightRequest="20"
+                         Source="add.png"
+                         Command="{Binding AddNewDevisCommand}"
+                         />
+        </Frame>-->
+    </Grid>
+</ContentPage>

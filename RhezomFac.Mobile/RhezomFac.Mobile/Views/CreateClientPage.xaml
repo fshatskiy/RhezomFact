@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="RhezomFac.Mobile.Views.CreateClientPage"
+             Title="Création du Client">
+
+    <ScrollView Margin="10">
+        <Grid RowDefinitions="auto,auto,auto,auto,auto,auto,auto">
+
+            <Entry  Style="{StaticResource EntryWithNextBtnPanelFormStyle}"
+                Text="{Binding Nom}"
+                Placeholder="Nom"/>
+
+            <Entry Grid.Row="1"
+               Placeholder="Prénom"
+               Text="{Binding Prenom}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="2"
+               Placeholder="Adresse"
+               Text="{Binding Adresse}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="3"
+               Placeholder="Email" Keyboard="Email"
+               Text="{Binding Mail}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="4"
+               Placeholder="Mobile" Keyboard="Numeric"
+               Text="{Binding Tel}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Entry Grid.Row="5"
+               Placeholder="N° TVA du client"
+               Text="{Binding NumTVA}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Frame Grid.Row="6"
+               Style="{StaticResource ButtonFrameStyle}">
+                <Button Text="Enregistrer"
+                    WidthRequest="200"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding SaveClient}"/>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

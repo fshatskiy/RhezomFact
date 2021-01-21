@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:prism="http://prismlibrary.com"
+                  xmlns:Views="clr-namespace:RhezomFac.Mobile.Views"
+                  prism:ViewModelLocator.AutowireViewModel="True"
+                  x:Class="RhezomFac.Mobile.Views.HomeMasterDetailPage"
+                  x:Name="MasterPage"
+                  NavigationPage.HasNavigationBar="false">
+
+    <MasterDetailPage.Master>
+        <NavigationPage Title="Menu"
+                        Icon="ic_hamburger.png">
+            <x:Arguments>
+                <ContentPage NavigationPage.HasBackButton="False"
+                             Title="Menu"
+                             Padding="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <StackLayout Margin="10">
+                            <!--Factures item-->
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             Margin="15,0,0,0">
+                                    <Image Source="invoices.png"
+                                           Style="{StaticResource MenuItemImagelStyle}"/>
+                                    <Label Text="Factures"
+                                           Style="{StaticResource MenuItemLabelStyle}"/>
+                                </StackLayout>
+                                <BoxView Style="{StaticResource BoxViewSeparatorStyle}"></BoxView>
+                                <!--Navigation command-->
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding  Source={x:Reference MasterPage}, Path=BindingContext.MenuItemClickCommand}"
+                                                          NumberOfTapsRequired="1"
+                                                          CommandParameter="FacturesPage"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <!--Devis item-->
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             Margin="15,0,0,0">
+                                    <Image Source="invoices.png"
+                                           Style="{StaticResource MenuItemImagelStyle}"/>
+                                    <Label Text="Devis"
+                                           Style="{StaticResource MenuItemLabelStyle}"/>
+                                </StackLayout>
+                                <BoxView Style="{StaticResource BoxViewSeparatorStyle}"></BoxView>
+                                <!--Navigation command-->
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding  Source={x:Reference MasterPage}, Path=BindingContext.MenuItemClickCommand}"
+                                                          NumberOfTapsRequired="1"
+                                                          CommandParameter="DevisPage"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <!--Note de frais itemk-->
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             Margin="15,0,0,0">
+                                    <Image Source="description.png"
+                                           Style="{StaticResource MenuItemImagelStyle}"/>
+                                    <Label Text="Note de frais"
+                                           Style="{StaticResource MenuItemLabelStyle}"/>
+                                </StackLayout>
+                                <BoxView Style="{StaticResource BoxViewSeparatorStyle}"></BoxView>
+                                <!--Navigation commakknd-->
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding  Source={x:Reference MasterPage}, Path=BindingContext.MenuItemClickCommand}"
+                                                          NumberOfTapsRequired="1"
+                                                          CommandParameter="NoteDeFraisPage"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+                            <!--Clients item-->
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal"
+                                             Margin="15,0,0,0">
+                                    <Image Source="description.png"
+                                           Style="{StaticResource MenuItemImagelStyle}"/>
+                                    <Label Text="Clients"
+                                           Style="{StaticResource MenuItemLabelStyle}"/>
+                                </StackLayout>
+                                <BoxView Style="{StaticResource BoxViewSeparatorStyle}"></BoxView>
+                                <!--Navigation command-->
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding  Source={x:Reference MasterPage}, Path=BindingContext.MenuItemClickCommand}"
+                                                          NumberOfTapsRequired="1"
+                                                          CommandParameter="ClientsPage"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+
+
+                        </StackLayout>
+
+                        <!--My company item-->
+                        <StackLayout Grid.Row="1">
+                            <BoxView Style="{StaticResource BoxViewSeparatorStyle}"></BoxView>
+                            <StackLayout Orientation="Horizontal"
+                                         Margin="15,0,0,0">
+                                <Image Source="logout.png"
+                                       Style="{StaticResource MenuItemImagelStyle}"/>
+                                <Label Text="Déconnexion"
+                                       Style="{StaticResource MenuItemLabelStyle}"/>
+                            </StackLayout>
+                            <BoxView Style="{StaticResource BoxViewSeparatorStyle}"></BoxView>
+                            <!--Navigation command-->
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding  Source={x:Reference MasterPage}, Path=BindingContext.MenuItemClickCommand}"
+                                                      NumberOfTapsRequired="1"
+                                                      CommandParameter="LoginPage"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                    </Grid>
+                </ContentPage>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail  >
+        <NavigationPage >
+            <x:Arguments>
+                <Views:MainPage />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>

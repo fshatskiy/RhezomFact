@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="RhezomFac.Mobile.Views.CreateDevisPage"
+             Title="Création de Devis"
+             x:Name="CreateDevisPageView">
+    <ScrollView Margin="10">
+        <Grid RowDefinitions="auto,auto,auto,auto,auto, auto">
+
+            <Picker
+                Title="Clients"
+                ItemsSource="{Binding Clients}"
+                SelectedItem="{Binding SelectedClient}"
+                ItemDisplayBinding="{Binding Nom}"
+
+                Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Picker Grid.Row="1"
+                Title="Produis"
+                ItemsSource="{Binding Produits}"
+                SelectedItem="{Binding SelectedProd}"
+                ItemDisplayBinding="{Binding Nom}"
+
+                Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+
+            <StackLayout Grid.Row="2"
+                         Orientation="Horizontal">
+                <Entry WidthRequest="100"
+                       Placeholder="Quantité" Keyboard="Numeric"
+                       Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+                <Frame  Margin="0"
+                        Padding="15"
+                        CornerRadius="100"
+                        HasShadow="True"
+                        BackgroundColor="{StaticResource PrimaryColor}"
+                        BorderColor="LightGray">
+                    <ImageButton
+                         WidthRequest="20"
+                         BackgroundColor="Transparent"
+                         HeightRequest="20"
+                        Command="{Binding AddProductCommand}"
+                         Source="add.png"/>
+                </Frame>
+
+            </StackLayout>
+            <!--Liste de produits choisis-->
+            <ListView Grid.Row="3"
+                      HeightRequest="80"
+                      HorizontalOptions="Center"
+                      Margin="50,0"
+                      ItemsSource="{Binding SelectedProductsList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding Nom}" FontAttributes="Bold"/>
+                                            <Span Text="  x" />
+                                            <Span Text="{Binding QtiteRest}" FontAttributes="Bold"/>
+                                            <Span Text="  Prix : " />
+                                            <Span Text="{Binding PrixHT}" FontAttributes="Bold"/>
+                                            <Span Text="€" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Button Text="Supprimer" Command="{Binding Source={x:Reference CreateDevisPageView}, Path=BindingContext.RemoveDevisCommand}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Entry Grid.Row="4"
+               Placeholder="Informations additionnelles"
+               Text="{Binding InfoAdd}"
+               Style="{StaticResource EntryWithNextBtnPanelFormStyle}"/>
+
+            <Frame Grid.Row="5"
+               Style="{StaticResource ButtonFrameStyle}">
+                <Button Text="Enregistrer"
+                    WidthRequest="200"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding SaveCommand}"/>
+            </Frame>
+        </Grid>
+    </ScrollView>
+</ContentPage>

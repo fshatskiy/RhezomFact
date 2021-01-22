@@ -19,7 +19,7 @@ namespace RhezomFacAPI.Controllers
             //appeler la bd
             // var produitsList = porduitsRepository.GetAll();
 
-            var Produits = new List<ProduitModel>
+            var produits = new List<ProduitModel>
             {
                 new ProduitModel
                 {
@@ -46,7 +46,7 @@ namespace RhezomFacAPI.Controllers
             };
 
 
-            return Ok(Produits);
+            return Ok(produits);
         }
     }
 }
